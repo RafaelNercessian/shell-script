@@ -1,6 +1,6 @@
 #!/bin/bash
 converte_imagem(){
-	CAMINHO=~/Downloads/IMAGENS-LIVROS
+	local CAMINHO=~/Downloads/IMAGENS-LIVROS
 	for imagem in $@
 	do
 		convert $CAMINHO/$imagem.jpg $CAMINHO/$imagem.png
