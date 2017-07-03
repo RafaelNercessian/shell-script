@@ -2,10 +2,8 @@
 
 email_de_contato="rafanercessian@gmail.com"
 response=$(curl --write-out %{http_code} --connect-timeout 5 --silent --output /dev/null http://localhost)
-if [ $response -eq 200 ]
+if [ $response -ne 200 ]
 then
-	echo "O servidor está funcionando"
-else
 mail -s "O servidor parou" rafanercessian@gmail.com << EOF
 O servidor apresentou um problema e parou.
 EOF
