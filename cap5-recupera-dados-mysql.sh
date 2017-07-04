@@ -1,7 +1,7 @@
 #!/bin/bash
 CAMINHO="/home/rafael/backups/Backup-S3-Amazon"
 aws s3 sync s3://curso-shell-script-backup-mysql/$(date +%F) $CAMINHO/$(date +%F)
-if [ $? -eq 0 ]
+if [ $(ls - A $CAMINHO/$(date +%F)) -ne " " ]
 then
 	cd $CAMINHO/$(date +%F)/casadocodigo
 	 for arquivo in *
@@ -10,6 +10,7 @@ then
                 done
         echo "Dados recuperados com sucesso"
 else
+	rm -r $CAMINHO/$(date +%F)
         aws s3 sync s3://curso-shell-script-backup-mysql/$(date -d '-1 day' '+%Y-%m-%d') $CAMINHO/$(date -d '-1 day' '+%Y-%m-%d')
         if [ $? -ne 0 ]
         then

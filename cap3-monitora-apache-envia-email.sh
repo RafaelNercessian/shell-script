@@ -7,5 +7,5 @@ then
 mail -s "O servidor parou" rafanercessian@gmail.com << EOF
 O servidor apresentou um problema e parou.
 EOF
-nohup systemctl restart apache2
+systemctl restart apache2
 fi
