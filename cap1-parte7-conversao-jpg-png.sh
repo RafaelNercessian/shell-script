@@ -15,7 +15,7 @@ recursao(){
 
 
 main(){ 
-	cd ~/Downloads/IMAGENS-LIVROS
+	cd ~/Downloads/imagens-livros
 	for arquivo in *
 	do
 		if [ -d $arquivo ]
@@ -32,7 +32,7 @@ main(){
 					convert $arquivo_sem_extensao.jpg $arquivo_sem_extensao.png
 				fi
 			done			
-			cd ~/Downloads/IMAGENS-LIVROS
+			cd ~/Downloads/imagens-livros
 		else
 			local imagem=$(find ~/Downloads -name $arquivo)
 			local arquivo_sem_extensao=$(ls $imagem | awk -F. '{ print $1 }')

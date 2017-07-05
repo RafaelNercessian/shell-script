@@ -1,3 +1,3 @@
 #/bin/bash
 
-convert ~/Downloads/IMAGENS-LIVROS/$1.jpg ~/Downloads/IMAGENS-LIVROS/$1.png
+convert ~/Downloads/imagens-livros/$1.jpg ~/Downloads/imagens-livros/$1.png

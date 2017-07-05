@@ -7,6 +7,6 @@ if [ $relacao_atual_total -gt $LIMIAR ]
 then
 	echo "O consumo de memória está acima do limite. Enviando email para o administrador"
 mail -s 'Alerta servidor' rafanercessian@gmail.com <<EOF
-Consumo de memória em nível crítico, uso de $(free -h | grep -i "mem" | awk '{ print $3 }')
+Consumo de memória está em nível crítico, uso de $(free -h | grep -i "mem" | awk '{ print $3 }')
 EOF
 fi

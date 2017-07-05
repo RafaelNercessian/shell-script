@@ -1,9 +1,9 @@
 #!/bin/bash
 converte_imagem(){
-	cd ~/Downloads/IMAGENS-LIVROS
-	if [ ! -d PNG ]
+	cd ~/Downloads/imagens-livros
+	if [ ! -d png ]
 	then
-		mkdir PNG
+		mkdir png
 	fi
 	for imagem in *.jpg
 	do
