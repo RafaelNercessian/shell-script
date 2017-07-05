@@ -28,7 +28,7 @@ main(){
 					recursao $(find ~/Downloads -name $dentro_do_arquivo)
 					
 				else
-					local arquivo_sem_extensao=$(ls $dentro_do_arquivo | awk -F. '{ print $1 }')
+					local arquivo_sem_extensao=$(ls $(find ~/Downloads -name $dentro_do_arquivo) | awk -F. '{ print $1 }')
 					convert $arquivo_sem_extensao.jpg $arquivo_sem_extensao.png
 				fi
 			done			
