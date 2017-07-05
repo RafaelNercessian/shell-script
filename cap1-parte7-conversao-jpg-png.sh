@@ -1,6 +1,5 @@
 recursao(){
 	cd $1
-	echo $1		
 	for conteudo_do_arquivo in *
 	do
 		if [ -d $conteudo_do_arquivo ]
