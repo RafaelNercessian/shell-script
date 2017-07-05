@@ -33,6 +33,10 @@ main(){
 				fi
 			done			
 			cd ~/Downloads/IMAGENS-LIVROS
+		else
+			local imagem=$(find ~/Downloads -name $arquivo)
+			local arquivo_sem_extensao=$(ls $imagem | awk -F. '{ print $1 }')
+			convert $arquivo_sem_extensao.jpg $arquivo_sem_extensao.png
 		fi
 	done
 }
