@@ -4,7 +4,7 @@ converte_imagem(){
 
 	local arquivo_sem_extensao=$(ls $1 | awk -F. '{ print $1 }')
 	convert $arquivo_sem_extensao.jpg $arquivo_sem_extensao.png
-
+	rm $arquivo_sem_extensao.jpg
 }
 
 conteudo_subdiretorio(){
@@ -22,6 +22,7 @@ conteudo_subdiretorio(){
 
 }
 
+main(){
 cd ~/Downloads/imagens-novos-livros
 for arquivo in *
 do
@@ -42,3 +43,12 @@ do
 		converte_imagem $(find ~/Downloads/imagens-novos-livros -name $arquivo)
 	fi
 done
+}
+
+main
+if [ $? -eq 0 ]
+then
+	echo "Conversão realizada com sucesso"
+else
+	echo "Houve uma falha no processo de conversão"
+fi
