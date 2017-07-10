@@ -9,7 +9,7 @@ processos_consomem_mais_memoria(){
 	do
 		cd ~/log
 		nome_do_processo=$(ps -p $pid -o comm=)
-		echo -n "$(date +%Y%m%d,%H:%M:%S,)" >> $nome_do_processo.log
+		echo -n "$(date +%F,%H:%M:%S,)" >> $nome_do_processo.log
 		tamanho=$(ps -o size --pid $pid | grep '[0-9]')
 		echo "$(bc<<<"scale=2;$tamanho/1024") MB " >> $nome_do_processo.log
 	done
