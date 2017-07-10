@@ -10,6 +10,6 @@ then
 		echo "O endereço IP não existe no arquivo"
 	fi
 else
-	echo "O argumento passado não é  um endereço IP válido"
+	echo "O argumento passado não segue o padrão"
 fi
 	
