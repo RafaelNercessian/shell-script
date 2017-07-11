@@ -1,28 +1,28 @@
 #!/bin/bash
 
 converte_imagem(){
-
-	local arquivo_sem_extensao=$(ls $1 | awk -F. '{ print $1 }')
+	local imagem_dentro_diretorio=$1
+	local arquivo_sem_extensao=$(ls $imagem_dentro_diretorio | awk -F. '{ print $1 }')
 	convert $arquivo_sem_extensao.jpg $arquivo_sem_extensao.png
 }
 
-conteudo_subdiretorio(){
-	cd $1
-	for conteudo_subdiretorio in *
+varredura_diretorio(){
+	local diretorio_passado_pelo_usuario=$1
+	cd $diretorio_passado_pelo_usuario
+	for conteudo_diretorio in *
 	do
-		if [ -d $(find ~/Downloads/imagens-novos-livros -name $conteudo_subdiretorio) ]
+		if [ -d $(find $diretorio_passado_pelo_usuario -name $conteudo_diretorio) ]
 		then
-			conteudo_subdiretorio $(find ~/Downloads/imagens-novos-livros -name $conteudo_subdiretorio)
+			varredura_diretorio $(find $diretorio_passado_pelo_usuario -name $conteudo_diretorio)
 		else
-			converte_imagem  $(find ~/Downloads/imagens-novos-livros -name $conteudo_subdiretorio)
+			converte_imagem  $(find $diretorio_passado_pelo_usuario -name $conteudo_diretorio)
 		fi
 	done
 
 
 }
 
-
-conteudo_subdiretorio ~/Downloads/imagens-novos-livros
+varredura_diretorio $1
 if [ $? -eq 0 ]
 then
 	echo "Conversão realizada com sucesso"
